@@ -1,0 +1,24 @@
+<h1>afficher students list</h1>
+<table border="1">
+    <tr>
+    <th>NSC</th>
+    <th>Email</th>
+        <th>Classroom</th>
+        <th>CIN</th>
+        <th>Supprimer</th>
+    </tr>
+    {% for student in students %}
+        <tr>
+            <td>{{ student.nsc }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.classroom.name }}</td>
+            <td>{{ student.cin }}</td>
+            <td>
+                <a href="{{ path('deleteStudent',{'nsc':student.nsc})}}">Supprimer</a>
+            </td>
+        </tr>
+
+    {% endfor %}
+
+</table>
+<a href="{{ path('addStudent') }}">ajouter un element</a>

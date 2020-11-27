@@ -1,0 +1,17 @@
+<h1>Afficher les clubs disponibles</h1>
+    <table border="1">
+        <tr>
+        <th>REF</th>
+        <th>Creation Date</th>
+            <th>Supprimer</th>
+        </tr>
+        {% for club in clubs %}
+            <tr>
+        <td>{{ club.REF }}</td>
+                <td>{{ club.CreationDate }}</td>
+                <td>
+                    <a href="{{ path('deleteClub',{'ref':club.ref}) }}">supprimer</a>
+                </td>
+            </tr>
+{% endfor %}
+    </table>

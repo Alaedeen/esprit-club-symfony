@@ -1,0 +1,24 @@
+
+<h1>List des classroom a filtrer </h1>
+{{ form(f) }}
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Supprimer</th>
+        <th>Modifier</th>
+    </tr>
+    {%  for classroom in classrooms %}
+        <tr>
+            <td>{{ classroom.id }}</td>
+            <td>{{ classroom.Name }}</td>
+            <td>
+                <a href="{{ path('deleteClassroom',{'id': classroom.id}) }}">supprimer</a>
+            </td>
+            <td>
+                <a href="{{ path('updateClassroom',{'id': classroom.id}) }}">Modifier</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<a href="{{ path('addClassroom') }}">ajouter un element</a>
